@@ -8,4 +8,5 @@ upload: /img/test.txt
 tags:
   - test
   - document
+cost: 8
 ---
