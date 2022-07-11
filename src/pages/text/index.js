@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import Layout from "../../components/Layout";
-import BlogRoll from "../../components/BlogRoll";
+import TextRoll from "../../components/TextRoll";
 
 export default class TextIndexPage extends React.Component {
   render() {
@@ -28,7 +28,7 @@ export default class TextIndexPage extends React.Component {
         <section className="section">
           <div className="container">
             <div className="content">
-              <BlogRoll />
+              <TextRoll />
             </div>
           </div>
         </section>

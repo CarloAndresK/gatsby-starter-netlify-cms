@@ -1,23 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { kebabCase } from "lodash";
-import { Helmet } from "react-helmet";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 
 // eslint-disable-next-line
 export const VideoPostTemplate = ({
   data
 }) => {
-  console.log(data);
-  const frontmatter = data.frontmatter
-  const image = frontmatter.featuredimage.publicURL
-  const cost = frontmatter.cost
+  console.log('VideoPostTemplate', data);
+  const isPreview = typeof data.frontmatter === "undefined";
 
-  const title = frontmatter.title
-  const description = frontmatter.description
-  const tags = frontmatter.tags
-  const link = frontmatter.link
+  data = (!isPreview) ? data.frontmatter : data
+  
+  const image = (!isPreview) ? data.featuredimage.publicURL : data.featuredimage 
+  const cost = data.cost
+
+  const title = data.title
+  const description = data.description
+  const tags = data.tags
+  const link = data.link
   
   return (
     <section className="section">
@@ -26,8 +27,8 @@ export const VideoPostTemplate = ({
         <h1>{title}</h1>
         <span>{tags.map((tag, index) => (<strong key={index}>{tag}</strong>))}</span>
         <p>{description}</p>
-        <img src={image} width="200px" height="200px"></img>
-        <iframe src={link} frameBorder="0"></iframe>
+        {(!image ? '' : (<img src={image} width="200px" height="200px"></img>))}
+        {(!link ? '' : (<iframe src={link} frameBorder="0"></iframe>))}
         <p>Cost to buy: {cost} kr</p>
         </div>
       </div>

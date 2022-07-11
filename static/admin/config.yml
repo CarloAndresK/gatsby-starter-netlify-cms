@@ -27,7 +27,7 @@ collections:
           default: "text-post",
         }
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Publish Date", name: "date", widget: "date", format: 'YYYY-MM-DD' }
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Featured Post", name: "featuredpost", widget: "boolean", default: false, required: false }
       - { label: "Featured Image", name: "featuredimage", widget: image, required: false }
@@ -48,7 +48,7 @@ collections:
           default: "video-post",
         }
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Publish Date", name: "date", widget: "date", format: 'YYYY-MM-DD' }
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Featured Post", name: "featuredpost", widget: "boolean", default: false, required: false }
       - { label: "Featured Image", name: "featuredimage", widget: image, required: false }
@@ -69,7 +69,7 @@ collections:
           default: "document-post",
         }
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Publish Date", name: "date", widget: "date", format: 'YYYY-MM-DD' }
       - { label: "Description", name: "description", widget: "text", required: false }
       - { label: "Featured Post", name: "featuredpost", widget: "boolean", default: false, required: false }
       - { label: "Upload", name: "upload", widget: "file" }
