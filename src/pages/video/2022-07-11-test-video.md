@@ -1,4 +1,5 @@
 ---
+templateKey: video-post
 title: dadadadada
 date: 2022-07-11T15:55:39.799Z
 description: dadadada
