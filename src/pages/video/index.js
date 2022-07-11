@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import Layout from "../../components/Layout";
-import BlogRoll from "../../components/BlogRoll";
+import VideoRoll from "../../components/VideoRoll";
 
 export default class VideoIndexPage extends React.Component {
   render() {
@@ -28,7 +28,7 @@ export default class VideoIndexPage extends React.Component {
         <section className="section">
           <div className="container">
             <div className="content">
-              <BlogRoll />
+              <VideoRoll />
             </div>
           </div>
         </section>

@@ -19,7 +19,7 @@ export const IndexPageTemplate = ({
   intro,
 }) => {
   const heroImage = getImage(image) || image;
-
+  console.log('hej')
   return (
     <div>
       <FullWidthImage img={heroImage} title={title} subheading={subheading} />
