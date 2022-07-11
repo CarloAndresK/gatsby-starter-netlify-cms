@@ -9,4 +9,5 @@ link: https://www.youtube.com/watch?v=xsJGS8Z4MlY
 tags:
   - test
   - video
+cost: 1
 ---
