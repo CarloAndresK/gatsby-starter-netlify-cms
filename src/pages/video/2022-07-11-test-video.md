@@ -1,14 +1,9 @@
 ---
-templateKey: video-post
-title: Test video
-date: 2022-07-11T12:31:37.470Z
-description: this is a test video
-featuredpost: false
-featuredimage: /img/chemex.jpg
-link: https://www.youtube.com/embed/xsJGS8Z4MlY
-cost: 2
+title: dadadadad
+date: 2022-07-11T15:55:39.799Z
+description: dadadada
+link: dadadad
 tags:
-  - test
-  - video
-cost: 1
+  - adadad
+cost: 3
 ---
