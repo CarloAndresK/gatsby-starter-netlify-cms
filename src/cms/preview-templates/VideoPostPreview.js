@@ -2,11 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { VideoPostTemplate } from '../../templates/video-post'
 
-const VideoPostPreview = ({ entry, getAsset }) => {
+const VideoPostPreview = ({ entry }) => {
   const data = entry.getIn(['data']).toJS()
   console.log(data)
   return (
-    <VideoPostTemplate image={getAsset(data.image)}
+    <VideoPostTemplate data={data}
     />
   )
 }
@@ -14,8 +14,7 @@ const VideoPostPreview = ({ entry, getAsset }) => {
 VideoPostPreview.propTypes = {
   entry: PropTypes.shape({
     getIn: PropTypes.func,
-  }),
-  getAsset: PropTypes.func
+  })
 }
 
 export default VideoPostPreview

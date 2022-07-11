@@ -29,11 +29,11 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "text" }
-      - { label: "Featured Post", name: "featuredpost", widget: "boolean", default: false }
-      - { label: "Featured Image", name: "featuredimage", widget: image }
+      - { label: "Featured Post", name: "featuredpost", widget: "boolean", default: false, required: false }
+      - { label: "Featured Image", name: "featuredimage", widget: image, required: false }
       - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Tags", name: "tags", widget: "list" }
-      - { label: "Cost", name: "cost", widget: "number", default: 0, value_type: "float" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Cost", name: "cost", widget: "number", default: 0, value_type: "float", required: false }
 
   - name: "video"
     label: "Video"
@@ -50,11 +50,11 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "text" }
-      - { label: "Featured Post", name: "featuredpost", widget: "boolean", default: false }
-      - { label: "Featured Image", name: "featuredimage", widget: image }
+      - { label: "Featured Post", name: "featuredpost", widget: "boolean", default: false, required: false }
+      - { label: "Featured Image", name: "featuredimage", widget: image, required: false }
       - { label: "Link", name: "link", widget: "string" }
-      - { label: "Tags", name: "tags", widget: "list" }
-      - { label: "Cost", name: "cost", widget: "number", default: 0, value_type: "float" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Cost", name: "cost", widget: "number", default: 0, value_type: "float", required: false }
 
   - name: "document"
     label: "Document"
@@ -70,11 +70,11 @@ collections:
         }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Featured Post", name: "featuredpost", widget: "boolean", default: false }
+      - { label: "Description", name: "description", widget: "text", required: false }
+      - { label: "Featured Post", name: "featuredpost", widget: "boolean", default: false, required: false }
       - { label: "Upload", name: "upload", widget: "file" }
-      - { label: "Tags", name: "tags", widget: "list" }
-      - { label: "Cost", name: "cost", widget: "number", default: 0, value_type: "float" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Cost", name: "cost", widget: "number", default: 0, value_type: "float", required: false }
 
   - name: "pages"
     label: "Pages"

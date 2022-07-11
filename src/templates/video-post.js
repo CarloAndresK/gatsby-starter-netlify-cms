@@ -12,8 +12,7 @@ export const VideoPostTemplate = ({
   console.log(data);
   const frontmatter = data.frontmatter
   const image = frontmatter.featuredimage.publicURL
-
-  console.log('cost',frontmatter.cost)
+  const cost = frontmatter.cost
 
   const title = frontmatter.title
   const description = frontmatter.description
@@ -29,6 +28,7 @@ export const VideoPostTemplate = ({
         <p>{description}</p>
         <img src={image} width="200px" height="200px"></img>
         <iframe src={link} frameBorder="0"></iframe>
+        <p>Cost to buy: {cost} kr</p>
         </div>
       </div>
     </section>
