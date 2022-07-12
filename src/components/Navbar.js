@@ -1,15 +1,57 @@
 import React from "react";
 import { Link } from "gatsby";
 import logo from "../img/logo.svg";
+import netlifyIdentity from 'netlify-identity-widget';
+
+const netlifyAuth = {
+  isAuthenticated: false,
+  user: null,
+  authenticate(callback) {
+    this.isAuthenticated = true;
+    netlifyIdentity.open();
+    netlifyIdentity.on('login', user => {
+      this.user = user;
+      callback(user);
+    });
+  },
+  signout(callback) {
+    this.isAuthenticated = false;
+    netlifyIdentity.logout();
+    netlifyIdentity.on('logout', () => {
+      this.user = null;
+      callback();
+    });
+  }
+};
 
 const Navbar = class extends React.Component {
   constructor(props) {
     super(props);
+
+    const user = netlifyIdentity.currentUser();
+    const loggedIn = user != null;
+    const loginButtonText = (loggedIn) ? 'Logout' : 'Login';
+
     this.state = {
       active: false,
       navBarActiveClass: "",
+      loginButtonText: loginButtonText,
+      loggedIn: loggedIn,
+      user: user
     };
   }
+
+  login = () => {
+    netlifyAuth.authenticate(() => {
+      this.setState({ loggedIn: true, loginButtonText: 'Logout', user: netlifyAuth.user });
+    });
+  };
+
+  logout = () => {    
+    netlifyAuth.signout(() => {
+      this.setState({ loggedIn: false, loginButtonText: 'Login', user: null })
+    });
+  };
 
   toggleHamburger() {
     // toggle the active boolean in the state
@@ -63,6 +105,13 @@ const Navbar = class extends React.Component {
             <Link className="link is-info" to="/about">
               About
             </Link>
+          </p>
+          <p className="level-item has-text-centered">
+            <a className="link is-info"               
+               onKeyPress={() => (!this.state.loggedIn) ? this.login() : this.logout()}
+                onClick={() => (!this.state.loggedIn) ? this.login() : this.logout()}>
+              {this.state.loginButtonText}
+            </a>
           </p>
         </nav>
 

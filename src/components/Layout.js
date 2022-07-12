@@ -6,6 +6,12 @@ import "./all.sass";
 import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
 
+import netlifyIdentity from 'netlify-identity-widget';
+
+window.netlifyIdentity = netlifyIdentity;
+// You must run this once before trying to interact with the widget
+netlifyIdentity.init();
+
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata();
   return (
@@ -14,7 +20,6 @@ const TemplateWrapper = ({ children }) => {
         <html lang="en" />
         <title>{title}</title>
         <meta name="description" content={description} />
-        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
         <link
           rel="apple-touch-icon"
           sizes="180x180"

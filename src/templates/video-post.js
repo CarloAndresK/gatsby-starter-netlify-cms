@@ -2,11 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
+import netlifyIdentity from 'netlify-identity-widget';
 
 // eslint-disable-next-line
 export const VideoPostTemplate = ({
   data
 }) => {
+  const user = netlifyIdentity.currentUser();
+  console.log({ user });
   console.log('VideoPostTemplate', data);
   const isPreview = typeof data.frontmatter === "undefined";
 
@@ -34,8 +37,9 @@ export const VideoPostTemplate = ({
         </section>
         <div className="container">
           <span className="block">{tags.map((tag, index) => (<strong key={index}>{tag}</strong>))}</span>
-          {(!image ? '' : (<figure className="image is-3by2"><img alt="cover"src={image} width="200px" height="200px"></img></figure>))}
-          {(!link ? '' : (<iframe src={link} title="bought video" width="640" height="320" frameBorder="0"></iframe>))}
+          { (!user) ? 
+          (!image ? '' : (<figure className="image is-3by2"><img alt="cover"src={image} width="200px" height="200px"></img></figure>)) :
+          (!link ? '' : (<iframe src={link} title="bought video" width="640" height="320" frameBorder="0"></iframe>)) }
           <div className="block">
           <button className="button is-primary">Cost to buy: {cost} kr</button>
           </div>
