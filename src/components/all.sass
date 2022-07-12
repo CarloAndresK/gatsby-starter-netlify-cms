@@ -122,16 +122,39 @@ $menu-label-color: $white-ter
   flex-basis: 35%
   margin: 0 1.5em 0 0
 
+nav.level.header 
+  margin-bottom: 0px
+
+.navbar-burger:hover
+  background: none !important
+  
+
 
 @import "~bulma"
 
-
 // responsiveness
-+tablet-only
+@include desktop
+  .mobile-nav
+    display: none
+
+@include touch
+  .mobile-nav
+    display: block
+  .desktop-nav
+    display: none
+
+  .navbar-burger 
+    @include hamburger(2.5rem)
+
+  .navbar-brand
+    padding: 0 .5rem
+    align-items: center
+
+@include tablet-only
   .blog-list-item .featured-thumbnail
     flex-basis: 50%
 
-+mobile
+@include mobile
   .blog-list-item header
     display: block
   .blog-list-item .featured-thumbnail

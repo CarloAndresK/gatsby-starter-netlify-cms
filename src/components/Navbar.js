@@ -33,54 +33,92 @@ const Navbar = class extends React.Component {
 
   render() {
     return (
+      <>
       <nav
-        className="navbar is-transparent"
+        className="navbar level header desktop-nav"
         role="navigation"
         aria-label="main-navigation"
       >
-        <div className="container">
-          <div className="navbar-brand">
-            <Link to="/" className="navbar-item" title="Logo">
+          <p className="level-item has-text-centered">
+            <Link className="link is-info" to="/video">
+              Video
+            </Link>
+          </p>
+          <p className="level-item has-text-centered">
+            <Link className="link is-info" to="/document">
+              Document
+            </Link>
+          </p>
+          <p className="level-item has-text-centered">
+            <Link to="/" className="link is-info" title="Logo">
               <img src={logo} alt="Kaldi" style={{ width: "88px" }} />
             </Link>
-            {/* Hamburger menu */}
+          </p>
+          <p className="level-item has-text-centered">
+            <Link className="link is-info" to="/text">
+              Text
+            </Link>
+          </p>
+          <p className="level-item has-text-centered">
+            <Link className="link is-info" to="/about">
+              About
+            </Link>
+          </p>
+        </nav>
+
+        <nav
+        className="navbar level header mobile-nav"
+        role="navigation"
+        aria-label="main-navigation"
+      >
+          <div className="container">
+            <div className="navbar-brand">
+              <Link to="/" className="link is-info" title="Logo">
+                <img src={logo} alt="Kaldi" style={{ width: "88px" }} />
+              </Link>
+              {/* Hamburger menu */}
+              <div
+                className={`navbar-burger burger ${this.state.navBarActiveClass}`}
+                data-target="navMenu"
+                role="menuitem"
+                tabIndex={0}
+                onKeyPress={() => this.toggleHamburger()}
+                onClick={() => this.toggleHamburger()}
+              >
+                <span />
+                <span />
+                <span />
+              </div>
+            </div>
             <div
-              className={`navbar-burger burger ${this.state.navBarActiveClass}`}
-              data-target="navMenu"
-              role="menuitem"
-              tabIndex={0}
-              onKeyPress={() => this.toggleHamburger()}
-              onClick={() => this.toggleHamburger()}
+              id="navMenu"
+              className={`navbar-menu ${this.state.navBarActiveClass}`}
             >
-              <span />
-              <span />
-              <span />
+          
+                <p className="level-item has-text-centered">
+                  <Link className="link is-info" to="/video">
+                    Video
+                  </Link>
+                </p>
+                <p className="level-item has-text-centered">
+                  <Link className="link is-info" to="/document">
+                    Document
+                  </Link>
+                </p>
+                <p className="level-item has-text-centered">
+                  <Link className="link is-info" to="/text">
+                    Text
+                  </Link>
+                </p>
+                <p className="level-item has-text-centered">
+                  <Link className="link is-info" to="/about">
+                    About
+                  </Link>
+                </p>
+              </div>
             </div>
-          </div>
-          <div
-            id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
-          >
-            <div className="navbar-start has-text-centered">
-              <Link className="navbar-item" to="/products">
-                Products
-              </Link>
-              <Link className="navbar-item" to="/video">
-                Video
-              </Link>
-              <Link className="navbar-item" to="/document">
-                Document
-              </Link>
-              <Link className="navbar-item" to="/text">
-                Text
-              </Link>
-              <Link className="navbar-item" to="/about">
-                About
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+        </nav>
+      </>
     );
   }
 };

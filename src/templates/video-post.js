@@ -21,18 +21,26 @@ export const VideoPostTemplate = ({
   const link = data.link
   
   return (
-    <section className="section">
-      <div className="container content">
-        <div className="columns">
-        <h1>{title}</h1>
-        <span>{tags.map((tag, index) => (<strong key={index}>{tag}</strong>))}</span>
-        <p>{description}</p>
-        {(!image ? '' : (<img src={image} width="200px" height="200px"></img>))}
-        {(!link ? '' : (<iframe src={link} frameBorder="0"></iframe>))}
-        <p>Cost to buy: {cost} kr</p>
+      <div className="content">
+        <section className="hero is-large is-primary">
+          <div className="hero-body">
+            <p className="title">
+            {title}
+            </p>
+            <p className="subtitle">
+            {description}
+            </p>
+          </div>
+        </section>
+        <div className="container">
+          <span className="block">{tags.map((tag, index) => (<strong key={index}>{tag}</strong>))}</span>
+          {(!image ? '' : (<figure className="image is-3by2"><img alt="cover"src={image} width="200px" height="200px"></img></figure>))}
+          {(!link ? '' : (<iframe src={link} title="bought video" width="640" height="320" frameBorder="0"></iframe>))}
+          <div className="block">
+          <button className="button is-primary">Cost to buy: {cost} kr</button>
+          </div>
         </div>
       </div>
-    </section>
   );
 };
 
